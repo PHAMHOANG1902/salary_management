@@ -1,4 +1,4 @@
-package model;
+package com.company.salary_management.model;
 
 import jakarta.persistence.*;
 

@@ -1,8 +1,9 @@
-package model;
+package com.company.salary_management.model;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "employee")
@@ -11,19 +12,33 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<Salary> salaries;
+
     @Column(nullable = false)
     private String name;
 
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String phone;
+
     private String position;
     private String department;
     private LocalDate hireDate;
     private String status;
+    private double salary;
 
-    // Getter & Setter
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+// Getter & Setter
 
     public Long getId() {
         return id;

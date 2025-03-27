@@ -1,4 +1,4 @@
-package service;
+package com.company.salary_management.service;
 
 import org.springframework.stereotype.Service;
 
